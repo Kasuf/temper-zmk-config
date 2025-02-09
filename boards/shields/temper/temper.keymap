@@ -101,7 +101,7 @@
             bindings = <
 &kp LS(N1)  &kp LS(N2)  &kp LS(NUHS)    &kp LS(N4)     &kp LS(N5)    &kp LS(N5)  &kp LS(N8)  &kp LS(N9)  &none         &kp SINGLE_QUOTE
 &kp UNDERSCORE     &kp MINUS          &kp LS(N0)  &kp LS(GRAVE)  &kp LS(EQUAL)      &kp EQUAL       &kp RA(N8)        &kp RA(N9)        &none         &kp SEMICOLON
-&kp GRAVE    &kp LS(GRAVE)   &none      &kp STAR   &kp RA(L)    &none          &kp RA(N5)      &kp RA(N6)      &kp UNDERSCORE  &kp LBKZ
+&kp GRAVE    &kp LS(GRAVE)   &none      &kp STAR   &kp RA(L)    &none          &kp RA(N5)      &kp RA(N6)      &kp UNDERSCORE  &kp LBKT
                                     &mo 3      &mo 3          &kp SPACE      &kp ENTER      &none                 &none
             >;
         };
