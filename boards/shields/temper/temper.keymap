@@ -50,7 +50,7 @@
         };
 
         soft_off {
-            bindings = <&hw_soft_off>;
+            bindings = <&soft_off>;
             key-positions = <0 20 9 29>;
             layers = <0>;
         };
