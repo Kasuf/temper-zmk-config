@@ -51,7 +51,7 @@ layers:
   - - {t: '`', s: '~'}
     - {t: Sft+`, s: Sft+~}
     - ''
-    - KP ASTERISK
+    - '*'
     - AltGr+L
     - ''
     - AltGr+5
