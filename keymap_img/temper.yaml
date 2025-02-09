@@ -29,7 +29,7 @@ layers:
     - {t: ▽, type: trans}
   Symbol:
   - - '!'
-    - '"'
+    - Sft+2
     - ''''
     - $
     - '%'
