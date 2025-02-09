@@ -15,19 +15,19 @@
         compatible = "zmk,combos";
 
         slash_combo {
-            bindings = <LS(N7)>;
+            bindings = <&kp LS(N7)>;
             key-positions = <16 7>;
             layers = <1>;
         };
 
         Backslash {
-            bindings = <RA(LS(N7))>;
+            bindings = <&kp RA(LS(N7))>;
             key-positions = <6 17>;
             layers = <1>;
         };
 
         pipe {
-            bindings = <RA(N7)>;
+            bindings = <&kp RA(N7)>;
             key-positions = <6 16>;
             layers = <1>;
         };
@@ -45,7 +45,7 @@
         };
 
         semi_colon {
-            bindings = <LS(DOT)>;
+            bindings = <&kp LS(DOT)>;
             key-positions = <28 27>;
             layers = <0>;
         };
