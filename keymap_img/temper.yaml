@@ -57,7 +57,7 @@ layers:
     - AltGr+5
     - AltGr+6
     - _
-    - LBKZ
+    - {t: '[', s: '{'}
   - - Number
     - Number
     - SPACE
