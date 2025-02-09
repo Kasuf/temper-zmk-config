@@ -110,7 +110,7 @@ combos:
   k: Gui+SPACE
   l: [BASE]
 - p: [28, 27]
-  k: '&LS('
+  k: '&LS(DOT)'
   l: [BASE]
 - p: [0, 20, 9, 29]
   k: '&soft_off'
