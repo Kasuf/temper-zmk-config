@@ -43,7 +43,7 @@ layers:
     - Sft+0
     - {t: '=', s: +}
     - {t: Sft+=, s: Sft++}
-    - {t: '=', s: +}
+    - '#'
     - AltGr+8
     - AltGr+9
     - ''
@@ -86,7 +86,7 @@ layers:
     - '5'
     - '6'
     - {t: /, s: '?'}
-  - [F6, F7, F8, F9, F10, F12, '1', '2', '3', +]
+  - [F6, F7, F8, F9, F10, F12, '1', '2', '3', KP PLUS]
   - - {type: held}
     - ''
     - SPACE
@@ -110,7 +110,7 @@ combos:
   k: Gui+SPACE
   l: [BASE]
 - p: [28, 27]
-  k: Sft+.
+  k: Sft+,
   l: [BASE]
 - p: [0, 20, 9, 29]
   k: '&soft_off'
