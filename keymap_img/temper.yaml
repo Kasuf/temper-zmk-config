@@ -1,6 +1,6 @@
 layers:
   BASE:
-  - [Q, W, E, R, T, Z, U, I, O, P]
+  - [Q, W, E, R, T, Y, U, I, O, P]
   - - {t: A, h: ⌃}
     - {t: S, h: ⎇}
     - {t: D, h: ⌘}
@@ -11,7 +11,7 @@ layers:
     - {t: K, h: ⌘}
     - {t: L, h: ⎇}
     - {t: ;, h: ⌃, s: ':'}
-  - - Y
+  - - Z
     - X
     - C
     - V
@@ -20,7 +20,7 @@ layers:
     - M
     - {t: ',', s: <}
     - {t: ., s: '>'}
-    - {t: '-', s: _}
+    - {t: /, s: '?'}
   - - Number
     - navigation
     - SPACE
@@ -28,27 +28,36 @@ layers:
     - Symbol
     - {t: ▽, type: trans}
   Symbol:
-  - - '!'
+  - - Sft+1
     - Sft+2
-    - ''''
-    - $
-    - '%'
-    - '&'
-    - (
-    - )
+    - Sft+#
+    - Sft+4
+    - Sft+5
+    - Sft+5
+    - Sft+8
+    - Sft+9
     - ''
     - {t: '''', s: '"'}
-  - - '?'
+  - - _
     - {t: '-', s: _}
-    - {t: '=', s: +}
+    - Sft+N
     - {t: Sft+`, s: Sft+~}
-    - {t: '`', s: '~'}
-    - '#'
-    - '{'
-    - '}'
+    - {t: Sft+=, s: Sft++}
+    - {t: '=', s: +}
+    - AltGr+8
+    - AltGr+9
     - ''
     - {t: ;, s: ':'}
-  - [<, '>', '', '*', '@', '', '[', ']', '?', '{']
+  - - {t: '`', s: '~'}
+    - {t: Sft+`, s: Sft+~}
+    - ''
+    - KP ASTERISK
+    - AltGr+L
+    - ''
+    - AltGr+5
+    - AltGr+6
+    - _
+    - LBKZ
   - - Number
     - Number
     - SPACE
@@ -56,7 +65,7 @@ layers:
     - {type: held}
     - ''
   navigation:
-  - ['', '', '&mmv MOVE_UP', '', '&msc SCRL_DOWN', AltGr+Gui+5, ⇤, UP ARROW, ⇥, BACK]
+  - ['', '', '&mmv MOVE_UP', '', '&msc SCRL_DOWN', AltGr+Gui+5, ⇤, UP ARROW, ⇥, BACKSPACE]
   - [↹, '&mmv MOVE_LEFT', '&mmv MOVE_DOWN', '&mmv MOVE_RIGHT', '&msc SCRL_UP', AltGr+Gui+6, ←, ↓, →, DELETE]
   - ['', '', '', LEFT SHIFT, LEFT SHIFT, '', AltGr+LEFT ARROW, '', AltGr+→, ⎋]
   - - Number
@@ -87,13 +96,13 @@ layers:
 combos:
 - p: [16, 7]
   k: {t: /, s: '?'}
-  l: [Symbol]
+  l: [BASE]
 - p: [6, 17]
   k: {t: \, s: '|'}
-  l: [Symbol]
+  l: [BASE]
 - p: [6, 16]
   k: '|'
-  l: [Symbol]
+  l: [BASE]
 - p: [6, 7, 8]
   k: CAPSLOCK
   l: [BASE]
@@ -105,3 +114,4 @@ combos:
   l: [BASE]
 - p: [0, 20, 9, 29]
   k: '&soft_off'
+  l: [BASE]
