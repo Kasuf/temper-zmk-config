@@ -113,7 +113,7 @@ combos:
   k: Sft+,
   l: [BASE]
 - p: [0, 20, 9, 29]
-  k: '&hw_soft_off'
+  k: '&soft_off'
   l: [BASE]
 - p: [0, 10, 20]
   k: BT CLR
