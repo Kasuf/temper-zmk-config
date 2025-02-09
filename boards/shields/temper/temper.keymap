@@ -98,7 +98,7 @@
             //             | GUI | NAV | SHFT |   | SPC | SYM  | ALT |
 
             bindings = <
-&kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp SQT    &kp DOLLAR     &kp PERCENT    &kp AMPERSAND  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none         &kp SINGLE_QUOTE
+&kp EXCLAMATION  &kp LS(N2)  &kp SQT    &kp DOLLAR     &kp PERCENT    &kp AMPERSAND  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none         &kp SINGLE_QUOTE
 &kp QUESTION     &kp MINUS          &kp EQUAL  &kp LS(GRAVE)  &kp GRAVE      &kp HASH       &kp LEFT_BRACE        &kp RIGHT_BRACE        &none         &kp SEMICOLON
 &kp LESS_THAN    &kp GREATER_THAN   &none      &kp ASTERISK   &kp AT_SIGN    &none          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION  &kp LBRC
                                     &mo 3      &mo 3          &kp SPACE      &kp ENTER      &none                 &none
