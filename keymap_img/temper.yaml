@@ -113,5 +113,5 @@ combos:
   k: Sft+,
   l: [BASE]
 - p: [0, 20, 9, 29]
-  k: '&soft_off'
+  k: '&hw_soft_off'
   l: [BASE]
