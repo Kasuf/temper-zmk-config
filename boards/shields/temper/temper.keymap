@@ -45,7 +45,7 @@
         };
 
         semi_colon {
-            bindings = <LS(&kp DOT)>;
+            bindings = <LS(DOT)>;
             key-positions = <28 27>;
             layers = <0>;
         };
