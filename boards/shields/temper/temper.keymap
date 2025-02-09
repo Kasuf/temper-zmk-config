@@ -6,145 +6,124 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
-
-#define DEFAULT 0
-#define GAME 1
-#define NUM 2
-#define NAV 3
-#define FUN 4
-
-# define ______ &trans
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <NUM NAV>;
-            then-layer = <FUN>;
+    combos {
+        compatible = "zmk,combos";
+
+        slash_combo {
+            bindings = <&kp SLASH>;
+            key-positions = <16 7>;
+            layers = <1>;
+        };
+
+        Backslash {
+            bindings = <&kp BACKSLASH>;
+            key-positions = <6 17>;
+            layers = <1>;
+        };
+
+        pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <6 16>;
+            layers = <1>;
+        };
+
+        caps {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <6 7 8>;
+            layers = <0>;
+        };
+
+        finder {
+            bindings = <&kp LG(SPACE)>;
+            key-positions = <1 2 3>;
+            layers = <0>;
+        };
+
+        semi_colon {
+            bindings = <&kp SEMICOLON>;
+            key-positions = <28 27>;
+            layers = <0>;
+        };
+
+        soft_off {
+            bindings = <&soft_off>;
+            key-positions = <0 20 9 29>;
         };
     };
+
     behaviors {
-        bspc_del: backspace_delete {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_RSFT)>;
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT_HAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 35>;
         };
-        super_bspc: super_backspace {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp LA(BACKSPACE)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        smart_shft: smart_shift {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LSHFT>, <&caps_word>;
-            mods = <(MOD_LSFT)>;
-        };
-        comma_semi: comma_semi {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_LSFT)>;
-        };
-        dot_colon: dot_colon {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
-            mods = <(MOD_LSFT)>;
-        };
-        qmrk_excl: qmrk_excl {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp QMARK>, <&kp EXCL>;
-            mods = <(MOD_LSFT)>;
-        };
-        slh_morph: slh_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp FSLH>, <&kp BSLH>;
-            mods = <(MOD_LSFT)>;
-        };
-        amps_morph: amps_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp AMPS>, <&kp PIPE>;
-            mods = <(MOD_LSFT)>;
+
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT_HAND";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32>;
         };
     };
-        keymap {
-                compatible = "zmk,keymap";
 
-                default_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y       &kp APOS   
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &kp A         &kp R         &kp S         &kp T         &kp G             &kp M         &kp N         &kp E         &kp I         &kp O
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H      &comma_semi    &dot_colon    &qmrk_excl
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                   &kp LGUI      &mo NUM     &smart_shft        &kp SPACE      &mo NAV     &to DEFAULT
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-                game_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &kp TAB       &kp Q         &kp W         &kp E         &kp R              ______       ______        ______        ______        ______  
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-       &kp LSHFT      &kp A         &kp S         &kp D         &kp F              ______       ______        ______        ______        ______
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-       &kp LCTRL      &kp Z         &kp X         &kp C         &kp V              ______       ______        ______        ______        ______
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    &kp ESC       ______      &kp SPACE            ______       ______        ______
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-                num_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      &kp TILDE       &kp AT       &kp LBRC      &kp RBRC     &kp PRCNT          &kp STAR       &kp N7        &kp N8        &kp N9      &kp MINUS
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &kp CARET      &kp HASH      &kp LPAR      &kp RPAR      &kp DLLR         &kp UNDER       &kp N4        &kp N5        &kp N6      &kp PLUS
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &amps_morph     &kp LT       &kp LBKT      &kp RBKT       &kp GT          &slh_morph      &kp N1        &kp N2        &kp N3      &kp EQUAL
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    ______        ______        ______            &kp N0        ______        ______
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
+    keymap {
+        compatible = "zmk,keymap";
 
-                nav_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        ______        ______        ______        ______        ______           &kp DEL       &kp HOME      &kp END       &kp TAB       &kp BSPC
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &sk LSHFT     &sk LCTRL      &sk LALT      &sk LGUI       ______           &kp LEFT      &kp DOWN       &kp UP      &kp RIGHT       &gresc
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        ______        ______        ______        ______        ______            ______        &kp RET       ______        ______        ______
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    ______        ______        ______            ______        ______        ______
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-
-                fun_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      &tog GAME    &kp K_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &out OUT_USB         ______        &kp F7        &kp F8        &kp F9       &kp F12
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4         ______        &kp F4        &kp F5        &kp F6       &kp F11
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &bt BT_CLR    &kp C_PREV     &kp C_PP     &kp C_NEXT   &out OUT_BLE         ______        &kp F1        &kp F2        &kp F3       &kp F10
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    ______        ______        ______            ______        ______        ______
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
+        BASE {
+            bindings = <
+&kp Q         &kp W             &kp E            &kp R              &kp T        &kp Z    &kp U              &kp I            &kp O             &kp P
+&hml LCTRL A  &hml RIGHT_ALT S  &hml LEFT_GUI D  &hml LEFT_SHIFT F  &kp G        &kp H    &hmr LEFT_SHIFT J  &hmr LEFT_GUI K  &hmr RIGHT_ALT L  &hmr LEFT_CONTROL SEMI
+&kp Y         &kp X             &kp C            &kp V              &kp B        &kp N    &kp M              &kp COMMA        &kp DOT           &kp MINUS
+                                &mo 3            &mo 2              &kp SPACE    &kp RET  &mo 1              &trans
+            >;
         };
+
+        Symbol {
+            // -----------------------------------------------------------------------------------------
+            // |  Q  |  W  |  E  |  R  |  T   |   |  Y  |  U   |  I  |  O  |  P  |
+            // |  A  |  S  |  D  |  F  |  G   |   |  H  |  J   |  K  |  L  |  ;  |
+            // |  Z  |  X  |  C  |  V  |  B   |   |  N  |  M   |  ,  |  .  |  /  |
+            //             | GUI | NAV | SHFT |   | SPC | SYM  | ALT |
+
+            bindings = <
+&kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp SQT    &kp DOLLAR     &kp PERCENT    &kp AMPERSAND  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none         &kp SINGLE_QUOTE
+&kp QUESTION     &kp MINUS          &kp EQUAL  &kp LS(GRAVE)  &kp GRAVE      &kp HASH       &kp LEFT_BRACE        &kp RIGHT_BRACE        &none         &kp SEMICOLON
+&kp LESS_THAN    &kp GREATER_THAN   &none      &kp ASTERISK   &kp AT_SIGN    &none          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION  &kp LBRC
+                                    &mo 3      &mo 3          &kp SPACE      &kp ENTER      &none                 &none
+            >;
+        };
+
+        navigation {
+            bindings = <
+&none    &none           &mmv MOVE_UP    &none            &msc SCRL_DOWN    &kp RA(LG(N5))        &kp LG(LEFT)        &kp UP_ARROW  &kp LG(RIGHT)  &kp K_BACK
+&kp TAB  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP      &kp RA(LG(NUMBER_6))  &kp LEFT            &kp DOWN      &kp RIGHT      &kp DELETE
+&none    &none           &none           &kp LEFT_SHIFT   &kp LEFT_SHIFT    &none                 &kp RA(LEFT_ARROW)  &none         &kp RA(RIGHT)  &kp ESCAPE
+                         &mo 3           &none            &kp SPACE         &kp ENTER             &mkp MB1            &mkp MB2
+            >;
+        };
+
+        Number {
+            bindings = <
+&kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6   &kp N7     &kp N8  &kp N9  &kp N0
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5       &kp F11  &kp N4     &kp N5  &kp N6  &kp SLASH
+&kp F6  &kp F7  &kp F8  &kp F9  &kp F10      &kp F12  &kp N1     &kp N2  &kp N3  &kp RBRC
+                &none   &none   &kp SPACE    &kp RET  &kp LG(Q)  &none
+            >;
+        };
+
+        // This layer is unreachable until "tri layer state" is sorted out.
+        // Leaving it here for completeness.Symbol {};
+    };
 };
