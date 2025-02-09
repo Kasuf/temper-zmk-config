@@ -95,13 +95,13 @@ layers:
     - ''
 combos:
 - p: [16, 7]
-  k: '&LS(N7)'
+  k: Sft+7
   l: [Symbol]
 - p: [6, 17]
-  k: '&RA(LS(N7))'
+  k: AltGr+Sft+7
   l: [Symbol]
 - p: [6, 16]
-  k: '&RA(N7)'
+  k: AltGr+7
   l: [Symbol]
 - p: [6, 7, 8]
   k: CAPSLOCK
@@ -110,7 +110,7 @@ combos:
   k: Gui+SPACE
   l: [BASE]
 - p: [28, 27]
-  k: '&LS(DOT)'
+  k: Sft+.
   l: [BASE]
 - p: [0, 20, 9, 29]
   k: '&soft_off'
